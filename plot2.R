@@ -22,14 +22,15 @@ plot2<-function() {
         hpc$Date = dmy_hms(paste(hpc$Date, hpc$Time))
         
         #Create a device graphics window with the width and height as 480 pixels
-        dev.new(width=480, height=480)
+        png(filename="plot2.png", width=480, height=480)
         
         #Execute a line plot and export as a png file
         with(hpc, plot(hpc$Date,hpc$Global_active_power, type="l",
                        xlab = "",
-                       ylab = "Global Active Power (kilowatts)"))
+                       ylab = "Global Active Power (kilowatts)"),
+                        bg = "white")
         
-        dev.copy(png, "plot2.png")
+
         dev.off()
         
 }
